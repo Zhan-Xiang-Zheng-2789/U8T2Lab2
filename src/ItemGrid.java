@@ -37,8 +37,8 @@ public class ItemGrid
         Item middle = grid[r][c];
         if(isValid(r-1, c) && isValid(r+1,c))
         {
-            Item left = grid[r-1][c];
-            Item right = grid[r+1][c];
+            Item left = grid[r][c-1];
+            Item right = grid[r][c+1];
             if(middle.getValue() >= left.getValue() && middle.getValue() >= right.getValue())
             {
                 return middle.getName();
@@ -52,21 +52,21 @@ public class ItemGrid
                 return left.getName();
             }
         }
-        else if (isValid(r-1, c))
+        else if (isValid(r, c-1))
         {
-            if(middle.getValue() >= grid[r-1][c].getValue())
+            if(middle.getValue() >= grid[r][c-1].getValue())
             {
                 return middle.getName();
             }
-            return grid[r-1][c].getName();
+            return grid[r][c-1].getName();
         }
         else
         {
-            if(middle.getValue() >= grid[r+2][c].getValue())
+            if(middle.getValue() >= grid[r][c+1].getValue())
             {
                 return middle.getName();
             }
-            return grid[r+1][c].getName();
+            return grid[r][c+1].getName();
         }
     }
 
